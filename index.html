@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rockstar Games</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+    <header id="header">
+        <div class="encapsulador-del-header-content">
+            <div id="menuToggle">
+                <!--
+                Sample studied and adapted from: https://codepen.io/erikterwan/pen/EVzeRP
+                -->
+                <input type="checkbox" id="menuCheckbox">
+                
+                <!--
+                Some spans to act as a hamburger.
+                -->
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        <!-- <nav class="header-nav-mobile"></nav> -->
+        <!-- <button class="header-burger-menu" type="button">
+            <span></span><span></span><span></span>
+        </button> -->
+        <div id="header-logo" class="logo">
+            <a class="full-space-link" href="#" target="_blank" rel="noopener noreferrer"></a>
+        </div>
+        <nav class="header-nav-desktop">
+            <ul>
+                <li>
+                    <button class="header-link-drop" type="button">Juegos
+                        <img src="./assets/images/icon-arrow-down.svg" alt="juegos">
+                    </button>
+                    <!-- <a class="header-link-drop" href="#" target="_blank" rel="noopener noreferrer">Juegos
+                        <img src="./assets/images/icon-arrow-down.svg" alt="juegos">
+                    </a> -->
+                </li>
+                <li>
+                    <a class="" href="#" target="_blank" rel="noopener noreferrer">Newswire</a>
+                </li>
+                <li>
+                    <a class="" href="#" target="_blank" rel="noopener noreferrer">Vídeos</a>
+                </li>
+                <li>
+                    <a class="" href="#" target="_blank" rel="noopener noreferrer">Descargas</a>
+                </li>
+                <li>
+                    <button class="header-link-drop header-link-more" type="button">Más
+                        <img src="./assets/images/icon-arrow-down.svg" alt="más">
+                    </button>
+                </li>
+                <li>
+                    <a class="header-link-external" href="#" target="_blank" rel="noopener noreferrer">Tienda
+                        <img src="./assets/images/icon-out.svg" alt="asistencia técnica">
+                    </a>
+                    
+                </li>
+                <li>
+                    <a class="header-link-external" href="#" target="_blank" rel="noopener noreferrer">Asistencia técnica
+                        <img src="./assets/images/icon-out.svg" alt="asistencia técnica">
+                    </a>
+                    
+                </li>
+            </ul>
+        </nav>
+
+        <div class="header-right">
+            <a href="#" class="get">Obtener Launcher</a>
+        
+            <button id="search" type="button">
+                <img src="./assets/images/icon-magnifyer.svg" alt="search">
+            </button>
+            <button id="header-profile" type="button">
+                <img src="./assets/images/icon-profile.svg" alt="search">
+            </button>
+            <div class="profile-card">
+                <div class="profile-card-top">
+                    <a href="#" class="profile-card-link">Iniciar sesión</a>
+                    <a href="#" class="profile-card-link">Registrarse</a>
+                    <button id="profile-help-bt" type="button" aria-label="Ayuda">
+                        <span>Ayuda</span>
+                    </button>
+                    <div class="help-list">
+                        <a href="" class="help-list-link">Asistencia técnica</a>
+                        <a href="" class="help-list-link">Aviso legal</a>
+                        <a href="" class="help-list-link">Política de privacidad</a>
+                        <a href="" class="help-list-link">Política de cookies</a>
+                        <a href="" class="help-list-link">Ajustes de cookies</a>
+                        <a href="" class="help-list-link">No quiero que vendáis mis datos</a>
+                    </div>
+                </div>
+                <div class="profile-card-bottom">
+                    <button id="profile-language-bt" type="button" aria-label="Selecciona un idioma">
+                        <span>Selecciona un idioma</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+        <div class="div-falso-para-menu-sticky-dinamico"></div>
+    </header>
+    <main>
+        <!-- Section Hero start-->
+        <section id="hero-carousel">
+            <input class="carousel-imputs" type="radio" name="carousel" id="btn1" checked>
+            <input class="carousel-imputs" type="radio" name="carousel" id="btn2">
+            <input class="carousel-imputs" type="radio" name="carousel" id="btn3">
+            <input class="carousel-imputs" type="radio" name="carousel" id="btn4">
+
+            <div class="carousel-img">
+                <div class="carousel-img-bg" id="img1">
+                    <a href="#" class="full-space-link"></a>
+                </div>
+                <div class="carousel-img-bg" id="img2">
+                    <a href="#" class="full-space-link"></a>
+                </div>
+                <div class="carousel-img-bg" id="img3">
+                    <a href="#" class="full-space-link"></a>
+                </div>
+                <div class="carousel-img-bg" id="img4">
+                    <a href="#" class="full-space-link"></a>
+                </div>
+            </div>
+            <div class="carousel-card">
+                <a href="google.com" class="carousel-card-txt" id="txt1">
+                    <div class="carousel-card-title">
+                        <p>Grand Theft Auto VI</p>
+                        <h2>Tráiler 1</h2>
+                    </div>
+                    <button  class="carousel-card-bt">Ver ahora</button>
+                </a>
+                <a href="google.com" class="carousel-card-txt" id="txt2">
+                    <div class="carousel-card-title">
+                        <p>Grand Theft Auto Online</p>
+                        <h2>Agents of Sabotage</h2>
+                    </div>
+                    <button  class="carousel-card-bt">Ver ahora</button>
+                </a>
+                <a href="google.com" class="carousel-card-txt" id="txt3">
+                    <div class="carousel-card-title">
+                        <p>Red Dead Redemption</p>
+                        <h2>Ya en PC</h2>
+                    </div>
+                    <button  class="carousel-card-bt">Ver ahora</button>
+                </a>
+                <a href="google.com" class="carousel-card-txt" id="txt4">
+                    <div class="carousel-card-title">
+                        <p>Grand Theft Auto Online</p>
+                        <h2>Bottom Dollar Bounties</h2>
+                    </div>
+                    <button  class="carousel-card-bt">Ver ahora</button>
+                </a>
+
+                <!-- discarded - full link no funciona bien
+                <div class="carousel-card-txt">
+                    <a href="google.com" class="full-space-link"></a>
+                    <p>Grand Theft Auto VI</p>
+                    <h2>Tráiler 1</h2>
+                    <a  class="carousel-card-bt">Ver ahora</a>
+                </div>
+                -->
+
+                <div class="carousel-bts">
+                    <label for="btn1" class="dot-bt"></label>
+                    <label for="btn2" class="dot-bt"></label>
+                    <label for="btn3" class="dot-bt"></label>
+                    <label for="btn4" class="dot-bt"></label>
+                </div>
+                
+                <!-- discarded? 
+                <div class="carousel-bts">
+                    <button class="dot-bt" type="button"></button>
+                    <button class="dot-bt" type="button"></button>
+                    <button class="dot-bt" type="button"></button>
+                    <button class="dot-bt" type="button"></button>
+                </div>-->
+            </div>
+            <!-- DISCARDED STRUCTURE
+            <div class="carousel-card">
+                <div class="carousel-card-img"></div>
+                <carousel-card-txt>
+                    <p></p>
+                    <h2></h2>
+                    <a href="#" class="carousel-card-bt">Ver ahora</a>
+                </carousel-card-txt>
+            </div>
+            <div class="carousel-card">
+                <div class="carousel-card-img"></div>
+                <carousel-card-txt>
+                    <p></p>
+                    <h2></h2>
+                    <a href="#" class="carousel-card-bt">Ver ahora</a>
+                </carousel-card-txt>
+            </div>
+            <div class="carousel-card">
+                <div class="carousel-card-img"></div>
+                <carousel-card-txt>
+                    <p></p>
+                    <h2></h2>
+                    <a href="#" class="carousel-card-bt">Ver ahora</a>
+                </carousel-card-txt>
+            </div>
+            <div class="carousel-card">
+                <div class="carousel-card-img"></div>
+                <carousel-card-txt>
+                    <p></p>
+                    <h2></h2>
+                    <a href="#" class="carousel-card-bt">Ver ahora</a>
+                </carousel-card-txt>
+            </div>
+            <div class="carousel-bts">
+                <button class="dot-bt" type="button"></button>
+                <button class="dot-bt" type="button"></button>
+                <button class="dot-bt" type="button"></button>
+                <button class="dot-bt" type="button"></button>
+            </div>
+            -->
+        </section> 
+        <!-- end of section hero-carousel-->
+
+        <!-- Section newswire start-->
+         <section id="newswire">
+            <h3><a href="#">Newswire</a></h3>
+            <div id="newswire-grid">
+                <a href="#" class="newswire-card_link">
+                    <div class="newswire-card">
+                        <div class="newswire-card-img"></div>
+                        <div class="newswire-card-txt">
+                            <div class="newswire-card-title">
+                                <span>GTA Online</span>
+                                <time datetime="10/12/24 12:59">10 de diciembre de 2024</time>    
+                            </div>
+                            <h5>GTA Online: Agents of Sabotage ya disponible</h5>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="newswire-card_link">
+                    <div class="newswire-card">
+                        <div class="newswire-card-img"></div>
+                        <div class="newswire-card-txt">
+                            <div class="newswire-card-title">
+                                <span>GTA Online</span>
+                                <time datetime="10/12/24 13:00">10 de diciembre de 2024</time>    
+                            </div>
+                            <h5>Nuevo deportivo Bravado Banshee GTS: gratis para los miembros de GTA+</h5>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="newswire-card_link">
+                    <div class="newswire-card">
+                        <div class="newswire-card-img"></div>
+                        <div class="newswire-card-txt">
+                            <div class="newswire-card-title">
+                                <span>GTA Online</span>
+                                <time datetime="5/12/24 12:59">5 de diciembre de 2024</time>    
+                            </div>
+                            <h5>Reparte justicia para ganar pasta con las bonificaciones de la oficina de ejecución de fianzas</h5>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="newswire-card_link">
+                    <div class="newswire-card">
+                        <div class="newswire-card-img"></div>
+                        <div class="newswire-card-txt">
+                            <div class="newswire-card-title">
+                                <span>Rockstar Games</span>
+                                <time datetime="3/12/24 18:37">3 de diciembre de 2024</time>    
+                            </div>
+                            <h5>Ofertas festivas de la Rockstar Store</h5>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="newswire-card_link">
+                    <div class="newswire-card">
+                        <div class="newswire-card-img"></div>
+                        <div class="newswire-card-txt">
+                            <div class="newswire-card-title">
+                                <span>GTA Online</span>
+                                <time datetime="3/12/24 10:00">3 de diciembre de 2024</time>    
+                            </div>
+                            <h5>GTA Online: Agents of Sabotage disponible el 10 de diciembre</h5>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="newswire-card_link">
+                    <div class="newswire-card">
+                        <div class="newswire-card-img"></div>
+                        <div class="newswire-card-txt">
+                            <div class="newswire-card-title">
+                                <span>Red Dead Online</span>
+                                <time datetime="3/12/24 10:00">3 de diciembre de 2024</time>    
+                            </div>
+                            <h5>Pásatelo genial estas fiestas en Red Dead Online con A las armas: Festivo</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <a href="" id="" class="basic-bt">View more</a>
+        </section>
+        <!-- end of section newswire-->
+
+        <!-- Section feature start-->
+        <section id="feature">
+            <h3><a href="#">Juegos destacados</a></h3>
+            <div id="featured-grid">
+                <div class="featured-main-title" role="img" aria-label="Grand Theft Auto VI">
+                    <a href="#" class="full-space-link"></a>
+                </div>
+                <div class="featured-title">
+                    <a href="#" class="full-space-link"></a>
+                </div>
+                <div class="featured-title">
+                    <a href="#" class="full-space-link"></a>
+                </div>
+                <div class="featured-title">
+                    <a href="#" class="full-space-link"></a>
+                </div>
+                <div class="featured-title">
+                    <a href="#" class="full-space-link"></a>
+                </div>
+            </div>
+            <a href="" id="" class="basic-bt">View more</a>
+        </section>
+        <!-- end of section feature-->
+
+        <section id="newsletter" class="opacity-bottom">
+            <div class="newsletter-content">
+                <span class="logo" alt="Rockstar Games Home"></span>
+                <div class="newsletter-txt">
+                    <h4>Suscríbete a la lista de correo de Rockstar Games</h4>
+                    <p>Suscríbete a nuestro boletín de noticias para obtener información sobre los anuncios y actualizaciones de juegos, detalles sobre eventos especiales, ofertas y mucho más sobre Rockstar Games y sus afiliados.</p>    
+                </div>
+                <a href="" class="newsletter-bt">Suscríbete ya</a>
+            </div>
+        </section>
+        <!-- end of newsletter-->
+
+    </main>
+    <footer>
+        <section id="footer-nav">
+            <ul>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Empleo</a></li>
+                <li><a href="#">Directrices de la comunidad</a></li>
+                <li><a href="#">Suscríbete</a></li>
+            </ul>
+        </section>
+        <section id="footer-language">
+            <button id="footer-language-bt" type="button" aria-label="Selecciona un idioma">
+                <span>Selecciona un idioma</span>
+            </button>
+            <!-- Un select no sirve porque necesitamos un boton para agregar los iconos, y que no sea "la primera opcion"
+            <select name="language" id="">
+                <option value="Selecciona un idioma"></option>
+                <option value=""></option>
+                <option value=""></option>
+            </select> -->
+        </section>
+        <section id="footer-network">
+            <a href="#" class="footer-network-icon tw"></a>
+            <a href="#" class="footer-network-icon ig"></a>
+            <a href="#" class="footer-network-icon yt"></a>
+            <a href="#" class="footer-network-icon fb"></a>
+            <a href="#" class="footer-network-icon twitch"></a>
+        </section>
+        <section id="footer-legal">
+            <ul id="footer-legal-list">
+                <li><a href="#">Corporación</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Ajustes de cookies</a></li>
+                <li><a href="#">Política de cookies</a></li>
+                <li><a href="#">Aviso Legal</a></li>
+                <li><a href="#">No quiero que vendais mis datos</a></li>
+            </ul>
+        </section>
+        <address id="sites">
+            <p>Rockstar Games</p>
+            <ul id="footer-adrress-list">
+                <li>Nueva York</li>
+                <li>Londres</li>
+                <li>París</li>
+                <li>Bogotá</li>
+            </ul>
+            <p>MCMXCVIII</p>
+        </address>
+    </footer>
+</body>
+</html>

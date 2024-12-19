@@ -1,0 +1,94 @@
+//Font import
+@use "fonttype";
+  
+//SIZES - start
+$base-size: 12px;
+$base-sizex2: calc(2 * $base-size);
+
+$section-padding: 4rem;
+$section-padding-mobile: 2rem;
+$news-padding: 8rem 4rem;
+$news-padding-mobile: 2rem;
+
+$basic-gap:1rem;
+$half-gap: calc($basic-gap / 2);
+$wider-gap: $basic-gap * 1.5;
+$double-gap: $basic-gap * 2;
+
+$header-height-desktop: 80px;
+//end of sizes
+
+//COLORS - start
+$standard-color: #fcaf17;
+$background-color: #0b0b0b;
+$light: #fff;
+$dark: #000;
+//Colors - text
+$body-color: #e8e8e8;
+$font-main-color: #fff;
+$font-secondary-color: #cecece;
+//Colors - links
+$secondary-link-font-color: #e8e8e8;
+//Colors - Buttons
+$alt-bt-bg: #1a1a1a;
+//Colors - Borders
+$border-color: #282828;
+//Colors - BG
+$background-header-menu: #121212;
+//Colors - Others
+$card-background-color: #000;
+
+//BORDERS
+
+$basic-border: 1px solid $border-color;
+
+//FONTS
+$main-font: "HelveticaNowDisplay-Regular";
+$main-font-bold: "HelveticaNowDisplay-Bold";
+$font-size-sm: 0.75rem;
+$font-size-header: 0.85rem;
+$font-size-xs: 0.5rem;
+$font-size-l: 1.25rem;
+$font-size-xl: 1.5rem;
+$font-size-xxl: 2rem;
+
+$font-sections-h3: 1.5rem;
+
+//ASPECT RATIO
+//$aspect-ratio-desktop-h: 10 / 3; //NOTA revisar que sass lo interpreta como division
+//$aspect-ratio-desktop-v: 64 / 79;
+
+//CORNERS
+$image-round-corner: 8px;
+
+//SECTIONS
+//$newsletter-min-height: 100px; ya no hace falta
+
+//Menu Sticky dinámico
+$size-for-sticky-menu: calc($header-height-desktop * 4);
+$size-for-sticky-menu-small: calc($header-height-desktop * 3);
+$size-for-sticky-menu-smaller: calc($header-height-desktop * 2);
+
+:root {
+    //COLORS
+    --standard-color: $standard-color;//no está funcionando
+    --background-color: $background-color;//no está funcionando
+    --light: #fff;
+    --dark: #000;
+    //Colors - text
+    --body-color: #e8e8e8;
+    --font-main-color: #fff;
+    --font-secondary-color: #cecece;
+    //Colors - links
+    --secondary-link-font-color: #e8e8e8;
+    //Colors - Buttons
+    --alt-bt-bg: #1a1a1a;
+    //Colors - Others
+    --card-background-color: #000;
+  
+    //ASPECT RATIO
+      --aspect-ratio-desktop-h: 10 / 3;
+      --aspect-ratio-desktop-v: 64 / 79;
+      --aspect-ratio-desktop-hero-16-9: 16 / 9;
+      --asd: $red;
+  }

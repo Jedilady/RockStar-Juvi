@@ -1,0 +1,607 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-size: 100%;
+  line-height: 1.5;
+  font-family: sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+address {
+  font-style: normal;
+}
+
+svg {
+  width: 300px;
+  height: 300px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+svg:hover {
+  /* filter: url(#distortion); */
+  animation-name: distortion;
+  animation-duration: 0.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  /* transform: scale(1.1); */
+}
+
+svg:hover {
+  animation-name: distortion2;
+  animation-duration: 0.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+@keyframes distortion {
+  0% {
+    /* filter: url(#distortion); */
+    filter: drop-shadow(0px -4px 1px rgb(255, 0, 0));
+    /* filter: drop-shadow(0px 4px 1px rgb(255, 255, 255)); */
+  }
+  25% {
+    filter: drop-shadow(0px -4px 1px rgb(0, 0, 0));
+  }
+  70% {
+    filter: drop-shadow(-5px 0px 1px rgb(255, 255, 255));
+  }
+  100% {
+    /* filter: url(#distortion); */
+    filter: drop-shadow(0px 4px 1px rgb(0, 213, 255));
+  }
+}
+@keyframes distortion2 {
+  0% {
+    /* filter: url(#distortion); */
+    /* filter: drop-shadow(0px -4px 1px rgb(255, 0, 0)); */
+    filter: drop-shadow(0px 4px 1px rgb(255, 255, 255));
+  }
+  25% {
+    filter: drop-shadow(0px -4px 1px rgb(0, 0, 0));
+  }
+  70% {
+    filter: drop-shadow(-5px 0px 1px rgb(255, 255, 255));
+  }
+  100% {
+    /* filter: url(#distortion); */
+    filter: drop-shadow(0px 4px 1px rgb(0, 213, 255));
+  }
+}
+@font-face {
+  font-family: "HelveticaNowDisplay-Regular";
+  src: url(../fonts/helvetica-now-display/HelveticaNowDisplay-Regular.eot);
+  src: url(../fonts/helvetica-now-display/HelveticaNowDisplay-Regular.woff) format("woff"), url(../fonts/helvetica-now-display/HelveticaNowDisplay-Regular.woff2) format("woff2"), url(../fonts/helvetica-now-display/HelveticaNowDisplay-Regular.otf) format("opentype");
+}
+@font-face {
+  font-family: "HelveticaNowDisplay-RegIta";
+  src: url(../fonts/helvetica-now-display/HelveticaNowDisplay-RegIta.eot);
+  src: url(../fonts/helvetica-now-display/HelveticaNowDisplay-RegIta.woff) format("woff"), url(../fonts/helvetica-now-display/HelveticaNowDisplay-RegIta.woff2) format("woff2"), url(../fonts/helvetica-now-display/HelveticaNowDisplay-RegIta.otf) format("opentype");
+}
+@font-face {
+  font-family: "HelveticaNowDisplay-Medium";
+  src: url(../fonts/helvetica-now-display/HelveticaNowDisplay-Medium.eot);
+  src: url(../fonts/helvetica-now-display/HelveticaNowDisplay-Medium.woff) format("woff"), url(../fonts/helvetica-now-display/HelveticaNowDisplay-Medium.woff2) format("woff2"), url(../fonts/helvetica-now-display/HelveticaNowDisplay-Medium.otf) format("opentype");
+}
+@font-face {
+  font-family: "HelveticaNowDisplay-MediumIta";
+  src: url(../fonts/helvetica-now-display/HelveticaNowDisplay-MediumIta.eot);
+  src: url(../fonts/helvetica-now-display/HelveticaNowDisplay-MediumIta.woff) format("woff"), url(../fonts/helvetica-now-display/HelveticaNowDisplay-MediumIta.woff2) format("woff2"), url(../fonts/helvetica-now-display/HelveticaNowDisplay-MediumIta.otf) format("opentype");
+}
+@font-face {
+  font-family: "HelveticaNowDisplay-Bold";
+  src: url(../fonts/helvetica-now-display/HelveticaNowDisplay-Bold.eot);
+  src: url(../fonts/helvetica-now-display/HelveticaNowDisplay-Bold.woff) format("woff"), url(../fonts/helvetica-now-display/HelveticaNowDisplay-Bold.woff2) format("woff2"), url(../fonts/helvetica-now-display/HelveticaNowDisplay-Bold.otf) format("opentype");
+}
+@font-face {
+  font-family: "HelveticaNowDisplay-BoldIta";
+  src: url(../fonts/helvetica-now-display/HelveticaNowDisplay-BoldIta.eot);
+  src: url(../fonts/helvetica-now-display/HelveticaNowDisplay-BoldIta.woff) format("woff"), url(../fonts/helvetica-now-display/HelveticaNowDisplay-BoldIta.woff2) format("woff2"), url(../fonts/helvetica-now-display/HelveticaNowDisplay-BoldIta.otf) format("opentype");
+}
+@font-face {
+  font-family: "HelveticaNowDisplay-Black";
+  src: url(../fonts/helvetica-now-display/HelveticaNowDisplay-Black.eot);
+  src: url(../fonts/helvetica-now-display/HelveticaNowDisplay-Black.woff) format("woff"), url(../fonts/helvetica-now-display/HelveticaNowDisplay-Black.woff2) format("woff2"), url(../fonts/helvetica-now-display/HelveticaNowDisplay-Black.otf) format("opentype");
+}
+@font-face {
+  font-family: "HelveticaNowDisplay-BlackIta";
+  src: url(../fonts/helvetica-now-display/HelveticaNowDisplay-BlackIta.eot);
+  src: url(../fonts/helvetica-now-display/HelveticaNowDisplay-BlackIta.woff) format("woff"), url(../fonts/helvetica-now-display/HelveticaNowDisplay-BlackIta.woff2) format("woff2"), url(../fonts/helvetica-now-display/HelveticaNowDisplay-BlackIta.otf) format("opentype");
+}
+:root {
+  --standard-color: $standard-color;
+  --background-color: $background-color;
+  --light: #fff;
+  --dark: #000;
+  --body-color: #e8e8e8;
+  --font-main-color: #fff;
+  --font-secondary-color: #cecece;
+  --secondary-link-font-color: #e8e8e8;
+  --alt-bt-bg: #1a1a1a;
+  --card-background-color: #000;
+  --aspect-ratio-desktop-h: 10 / 3;
+  --aspect-ratio-desktop-v: 64 / 79;
+  --aspect-ratio-desktop-hero-16-9: 16 / 9;
+  --asd: $red;
+}
+
+body {
+  background-color: #0b0b0b;
+  color: #fff;
+  font-family: "HelveticaNowDisplay-Regular";
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 24px;
+  }
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 20px;
+  }
+}
+@media (min-width: 0px) {
+  html {
+    font-size: 18px;
+  }
+}
+.opacity-bottom {
+  background: linear-gradient(0deg, #000 0.02%, transparent 74.02%);
+}
+
+.logo {
+  background-image: url(../images/logo-sm.svg);
+  min-width: 26px;
+  min-height: 26px;
+}
+
+.basic-bt {
+  align-self: center;
+  margin-top: 0.5rem;
+  position: relative;
+  font-family: "HelveticaNowDisplay-Bold";
+}
+.basic-bt::before {
+  content: "";
+  display: block;
+  background: #fcaf17;
+  height: 4px;
+  border-radius: 0.25rem;
+  bottom: 0;
+  position: absolute;
+  transition: all 0.2s ease;
+  width: calc(100% + 0.2rem);
+  left: -0.1rem;
+  z-index: -1;
+}
+.basic-bt:hover {
+  color: #000;
+  transition: all 0.2s ease;
+}
+.basic-bt:hover::before {
+  height: 100%;
+  width: calc(100% + 0.8rem);
+  left: -0.4rem;
+}
+
+a.full-space-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#hero-carousel {
+  display: grid;
+  grid-template-columns: 70% 1fr;
+  border: 1px solid purple;
+}
+#hero-carousel .carousel-img {
+  display: flex;
+  width: 100%;
+  aspect-ratio: var(--aspect-ratio-desktop-hero-16-9);
+}
+#hero-carousel .carousel-img .carousel-img-img {
+  align-self: stretch;
+  display: flex;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: inherit;
+}
+#hero-carousel .carousel-img .carousel-img-img:not(:nth-child(1)) {
+  display: none;
+}
+#hero-carousel .carousel-img .carousel-img-img:nth-child(1) {
+  background-image: url(../images/updates-GTA.jpg);
+}
+#hero-carousel .carousel-img .carousel-img-img:nth-child(2) {
+  background-image: url(../images/updates-global.jpg);
+}
+#hero-carousel .carousel-img .carousel-img-img:nth-child(3) {
+  background-image: url(../images/updates-RDR.jpg);
+}
+#hero-carousel .carousel-img .carousel-img-img:nth-child(4) {
+  background-image: url(../images/updates-GTAonline.jpg);
+}
+#hero-carousel .carousel-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 4rem 2rem;
+}
+#hero-carousel .carousel-card p {
+  font-size: 0.75rem;
+  color: #cecece;
+  font-family: "HelveticaNowDisplay-Bold";
+}
+#hero-carousel .carousel-card h2 {
+  font-size: 2rem;
+  letter-spacing: 1;
+}
+#hero-carousel .carousel-card .carousel-card-txt {
+  position: relative;
+}
+#hero-carousel .carousel-card .carousel-card-txt:not(:nth-child(1)) {
+  display: none;
+}
+
+#newswire {
+  align-self: stretch;
+  display: flex;
+  flex-flow: column;
+  padding: 4rem;
+  gap: 1.5rem;
+}
+#newswire h3 {
+  font-size: 1.5rem;
+}
+#newswire #newswire-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  background-color: #000;
+  gap: 1.5rem;
+}
+#newswire #newswire-grid .newswire-card_link {
+  align-self: stretch;
+  display: flex;
+  border-radius: 8px;
+  border: 1px solid #282828;
+}
+#newswire #newswire-grid .newswire-card_link:nth-child(1) .newswire-card-img {
+  background-image: url(../images/News-Sabotage.jpg);
+}
+#newswire #newswire-grid .newswire-card_link:nth-child(2) .newswire-card-img {
+  background-image: url(../images/News-GTA+.jpg);
+}
+#newswire #newswire-grid .newswire-card_link:nth-child(3) .newswire-card-img {
+  background-image: url(../images/News-Bounty.jpg);
+}
+#newswire #newswire-grid .newswire-card_link:nth-child(4) .newswire-card-img {
+  background-image: url(../images/News-Festive.jpg);
+}
+#newswire #newswire-grid .newswire-card_link:nth-child(5) .newswire-card-img {
+  background-image: url(../images/News-Sabotage.jpg);
+}
+#newswire #newswire-grid .newswire-card_link:nth-child(6) .newswire-card-img {
+  background-image: url(../images/News-Call.jpg);
+}
+#newswire #newswire-grid .newswire-card_link .newswire-card {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+}
+#newswire #newswire-grid .newswire-card_link .newswire-card .newswire-card-img {
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  aspect-ratio: 1;
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+}
+#newswire #newswire-grid .newswire-card_link .newswire-card .newswire-card-txt {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5rem;
+  padding: 2rem 1.5rem;
+}
+#newswire #newswire-grid .newswire-card_link .newswire-card .newswire-card-txt .newswire-card-title {
+  display: flex;
+  gap: 0.75rem;
+}
+#newswire #newswire-grid .newswire-card_link .newswire-card .newswire-card-txt .newswire-card-title span, #newswire #newswire-grid .newswire-card_link .newswire-card .newswire-card-txt .newswire-card-title time {
+  font-size: 0.75rem;
+}
+#newswire #newswire-grid .newswire-card_link .newswire-card .newswire-card-txt .newswire-card-title time {
+  color: #fff;
+  opacity: 0.5;
+}
+#newswire #newswire-grid .newswire-card_link .newswire-card .newswire-card-txt h5 {
+  font-size: 1.2rem;
+}
+
+#feature {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  padding: 4rem;
+  gap: 1.5rem;
+}
+#feature h3 {
+  font-size: 1.5rem;
+}
+#feature #featured-grid {
+  align-self: stretch;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+#feature #featured-grid .featured-main-title,
+#feature #featured-grid .featured-title {
+  min-height: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  transition: transform 0.3s;
+  border-radius: 8px;
+}
+#feature #featured-grid .featured-main-title:hover,
+#feature #featured-grid .featured-title:hover {
+  transform: scale(1.025);
+  transition: transform 0.3s;
+}
+#feature #featured-grid .featured-main-title {
+  grid-column-start: span 4;
+  background-image: url(../images/Featured-Main.png);
+  aspect-ratio: var(--aspect-ratio-desktop-h);
+}
+#feature #featured-grid .featured-title {
+  aspect-ratio: var(--aspect-ratio-desktop-v);
+}
+#feature #featured-grid .featured-title:nth-child(2) {
+  background-image: url(../images/Featured-1.jpg);
+}
+#feature #featured-grid .featured-title:nth-child(3) {
+  background-image: url(../images/Featured-2.jpg);
+}
+#feature #featured-grid .featured-title:nth-child(4) {
+  background-image: url(../images/Featured-3.jpg);
+}
+#feature #featured-grid .featured-title:nth-child(5) {
+  background-image: url(../images/Featured-4.jpg);
+}
+
+#newsletter {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100px;
+  padding: 8rem 4rem;
+  position: relative;
+}
+#newsletter .newsletter-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  max-width: 30rem;
+  position: relative;
+  min-height: inherit;
+  text-align: center;
+  font-size: 0.9rem;
+}
+#newsletter .newsletter-content .logo {
+  background-image: url(../images/logo-sm.svg);
+  background-repeat: no-repeat;
+  width: 42px;
+  height: 42px;
+  background-size: 42px;
+}
+#newsletter .newsletter-content .newsletter-txt {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+#newsletter .newsletter-content h4 {
+  font-size: 1.3rem;
+  margin: 0;
+  line-height: normal;
+}
+#newsletter .newsletter-content p {
+  color: #cecece;
+}
+#newsletter .newsletter-content a.newsletter-bt {
+  border-radius: 0.5rem;
+  border: 1px solid #cecece;
+  padding: 0.65rem 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #cecece;
+  letter-spacing: 1px;
+  background: transparent;
+  transition: 0.3s;
+}
+#newsletter .newsletter-content a.newsletter-bt:hover {
+  background-color: #1a1a1a;
+}
+#newsletter::before {
+  content: "";
+  display: block;
+  background-image: url(../images/newsletter-bg.png);
+  background-size: 13rem;
+  -webkit-mask-image: radial-gradient(75% 50% at 50% 50%, #000, transparent);
+  mask-image: radial-gradient(75% 50% at 50% 50%, #000, transparent);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  opacity: 0.2;
+}
+
+footer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 4em;
+  gap: 4em 0;
+  background-color: #000;
+}
+footer #footer-nav {
+  order: 0;
+}
+footer #footer-nav ul li {
+  font-weight: 700;
+}
+footer #footer-language {
+  order: 2;
+}
+footer #footer-language #footer-language-bt {
+  color: inherit;
+  border: 1px solid transparent;
+  background: none;
+}
+footer #footer-language #footer-language-bt span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem;
+}
+footer #footer-language #footer-language-bt span:before {
+  content: "";
+  display: inline-block;
+  background-image: url(../images/icon-world.svg);
+  height: 24px;
+  width: 24px;
+}
+footer #footer-language #footer-language-bt span:after {
+  content: "";
+  display: inline-block;
+  background-image: url(../images/icon-arrow-down.svg);
+  height: 24px;
+  width: 24px;
+  transform: rotate(0deg);
+  transition: 0.3s;
+}
+footer #footer-language #footer-language-bt:focus {
+  border: 1px solid #fff;
+}
+footer #footer-language #footer-language-bt:focus span:after {
+  transform: rotate(180deg);
+}
+footer #footer-network {
+  order: 1;
+  display: flex;
+  gap: 1rem;
+}
+footer #footer-network .footer-network-icon {
+  border: 8px solid transparent;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 100%;
+  box-sizing: initial;
+  height: 24px;
+  width: 24px;
+}
+footer #footer-network .footer-network-icon:hover {
+  background-color: hsla(0, 0%, 100%, 0.15);
+}
+footer #footer-network .tw {
+  background-image: url(../images/icon-x.svg);
+}
+footer #footer-network .ig {
+  background-image: url(../images/icon-ig.svg);
+}
+footer #footer-network .yt {
+  background-image: url(../images/icon-yt.svg);
+}
+footer #footer-network .fb {
+  background-image: url(../images/icon-fb.svg);
+}
+footer #footer-network .twitch {
+  background-image: url(../images/icon-twitch.svg);
+}
+footer #footer-legal {
+  order: 3;
+}
+footer #footer-legal #footer-legal-list {
+  display: grid;
+  gap: 1rem;
+  opacity: 0.65;
+}
+footer #sites {
+  order: 3;
+  flex-basis: 100%;
+}
+
+@media (min-width: 768px) {
+  footer #footer-nav {
+    order: 0;
+    flex-basis: 70%;
+  }
+  footer #footer-nav ul {
+    display: flex;
+    flex-flow: no-wrap row;
+    gap: 1rem;
+  }
+  footer #footer-language {
+    order: 1;
+  }
+  footer #footer-network {
+    order: 3;
+    justify-content: flex-end;
+    flex-basis: 30%;
+    gap: 1rem;
+  }
+  footer #footer-legal {
+    flex-basis: 70%;
+    font-size: var(--font-size-sm);
+    order: 2;
+  }
+  footer #sites {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+  }
+  footer #sites #footer-adrress-list {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

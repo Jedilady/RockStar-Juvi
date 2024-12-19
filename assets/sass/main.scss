@@ -1,0 +1,1259 @@
+//IMPORTS
+//Importacion de módulo MAP //Necesario para poder usar map.get y similar
+@use "sass:map";
+
+//Resets
+@use "resets";
+//BG images
+@use "imgbg" as *;
+//Basics
+@use "basics" as *;
+
+//BODY - start
+body {
+  background-color: $background-color;
+  color: $font-main-color;
+  font-family: $main-font;
+}
+
+//Body responsive
+@media (min-width: 1024px) {
+  html {
+    font-size: 24px;
+  }
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 0px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+//end of Body
+
+//OPACITY layers -start
+.opacity-bottom {
+  background: linear-gradient(
+    0deg,
+    #000 0.02%,
+    transparent 74.02%
+  ); //from the original page
+}
+//end of Opacity
+
+//MIXINS - start
+@mixin icon-size-reg {
+  height: $base-size;
+  width: $base-size;
+}
+@mixin icon-size-m {
+  height: calc($base-size * 1.5);
+  width: calc($base-size * 1.5);
+}
+
+@mixin icon-size-l {
+  height: $base-sizex2;
+  width: $base-sizex2;
+}
+//end of mixins
+
+//General Elements - start
+.logo {
+  background-image: $logo;
+  background-repeat: no-repeat;
+  min-width: 26px;
+  min-height: 26px;
+}
+
+//Botón "view more" con animación
+.basic-bt {
+  //Tomado del original, estudiado y simplificado
+  align-self: center;
+  margin-top: 0.5rem;
+  position: relative;
+  font-family: $main-font-bold;
+
+  &::before {
+    content: "";
+    display: block;
+    background: $standard-color;
+    height: 4px;
+    border-radius: 0.25rem;
+    bottom: 0;
+    position: absolute;
+    transition: all 0.2s ease;
+    width: calc(100% + 0.2rem);
+    left: -0.1rem; //esto es para ajustar la posición a la izq, debido a que la línea es más gruesa que el contenido (ver width)
+    z-index: -1; //para no tapar el contenido
+  }
+
+  &:hover {
+    color: $dark;
+    transition: all 0.2s ease;
+
+    &::before {
+      height: 100%;
+      width: calc(100% + 0.8rem);
+      left: -0.4rem;
+    }
+  }
+}
+
+//Enlaces para ocupar todo el fondo (y así evitar encapsular info dentro de ellos)
+a.full-space-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+//end of General
+
+// HEADER start
+#header {
+  // display: flex;
+  // padding: 0 2rem;
+  // justify-content: space-between;
+  // height: $header-height-desktop;
+  // align-items: center;
+  // border-bottom: $basic-border;
+
+  .encapsulador-del-header-content {
+    //para el menu sticky dinamico
+    display: flex;
+    padding: 0 2rem;
+    justify-content: space-between;
+    height: $header-height-desktop;
+    align-items: center;
+    border-bottom: $basic-border;
+    //lo anterior traido de #header
+    //estilos de fondo y borde del original:
+    backdrop-filter: blur(25px);
+    background: rgba(0, 0, 0, 0.85);
+    border-bottom: 1px solid $border-color;
+    //específico para el menu sticky dinamico:
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    animation: all 0.3 ease;
+  }
+  .div-falso-para-menu-sticky-dinamico {
+    //específico para dar altura para el menu sticky dinamico:
+    height: $size-for-sticky-menu-smaller;
+    z-index: -1;
+  }
+
+  @media (min-width: 520px) {
+    .div-falso-para-menu-sticky-dinamico {
+      height: $size-for-sticky-menu-small;
+    }
+  }
+  @media (min-width: 768px) {
+    .div-falso-para-menu-sticky-dinamico {
+      height: $size-for-sticky-menu;
+    }
+  }
+
+  .logo,
+  .header-right,
+  nav.header-nav-desktop {
+    align-self: center;
+  }
+
+  nav.header-nav-desktop {
+    font-size: $font-size-header;
+    font-family: $main-font-bold;
+    display: flex;
+    height: inherit;
+    align-items: stretch;
+
+    ul {
+      display: flex;
+      align-items: stretch;
+      height: inherit;
+      li {
+        display: flex;
+        height: inherit;
+        align-items: stretch;
+        a,
+        button.header-link-drop,
+        button.header-link-more {
+          //margin-top: 3px;
+          display: flex;
+          gap: 0.25rem;
+          padding: 4px 1rem 0;
+          height: inherit;
+          //height: $header-height-desktop;
+          align-items: center;
+          z-index: 10;
+          position: relative;
+          background-color: transparent;
+          color: $light;
+          border: none;
+          cursor: pointer;
+          &::after {
+            content: "";
+            height: 2px;
+            width: 100%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            transition: all 0.3s ease-in;
+          }
+
+          &:hover {
+            //border-bottom: 2px solid $light;
+            &::after {
+              background-color: $light;
+            }
+          }
+          img {
+            width: 0.75rem;
+            height: 0.75rem;
+            align-self: center;
+          }
+        }
+      }
+    }
+  }
+
+  nav.header-nav-mobile {
+    display: flex;
+  }
+  .logo {
+    position: relative;
+  }
+
+  .header-right {
+    display: flex;
+    gap: 2rem;
+    a.get {
+      font-family: $main-font-bold;
+      font-size: 0.85rem;
+      line-height: 0.5rem;
+      text-transform: uppercase;
+      border-radius: 4px;
+      padding: 0.75rem 1rem 0.7rem;
+      background-color: $standard-color;
+      color: $dark;
+      opacity: 0.9;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+    button {
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      &#search img {
+        width: 25px;
+        height: 25px;
+      }
+      &#header-profile img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    //oculta el botón "más"
+    nav.header-nav-desktop ul li button.header-link-more {
+      display: none;
+    }
+  }
+  @media (min-width: 1024px) {
+    //oculta el nav mobile
+    .header-nav-mobile,
+    .header-burger-menu {
+      display: none;
+    }
+  }
+  @media (max-width: 1199px) {
+    //oculta los botones a enlaces-externos
+    nav.header-nav-desktop ul li a.header-link-external {
+      display: none;
+    }
+  }
+  @media (min-width: 1024px) and (max-width: 1199px) {
+  }
+  @media (max-width: 1023px) {
+    //oculta el botón "más"
+    .header-link-more {
+      display: none;
+    }
+
+    //Oculta el nav-desktop y los botones search y get
+    nav.header-nav-desktop,
+    a.get,
+    button#search {
+      display: none;
+    }
+  }
+}
+//end of Header
+
+// Menu Toggle - start
+//code adapted from: https://codepen.io/erikterwan/pen/EVzeRP
+#menuToggle {
+  position: relative;
+
+  input {
+    display: block;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: -2px;
+    left: -2px;
+
+    cursor: pointer;
+
+    opacity: 0; //* hide this */
+    z-index: 2; //* and place it over the hamburger */
+
+    -webkit-touch-callout: none; //What's this?
+  }
+
+  //** hamburger styling */
+  span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    position: relative;
+
+    background: $light;
+    border-radius: 3px;
+
+    z-index: 1;
+    transition: transform 0.3s;
+  }
+
+  //** Transform the slices*/
+  input:checked ~ span:nth-last-child(1) {
+    transform: translate(0, -8px);
+  }
+
+  input:checked ~ span:nth-last-child(3) {
+    transform: translate(0, 8px);
+  }
+}
+
+@media (min-width: 768px) {
+  #menuToggle {
+    display: none;
+  }
+}
+//end of Menu toggle
+
+main {
+  margin-top: calc(-1 * $size-for-sticky-menu-smaller); //for sticky menu to work
+}
+
+@media (min-width: 520px) {
+  main {
+    margin-top: calc(-1 * $size-for-sticky-menu-small); //for sticky menu to work
+  }
+}
+@media (min-width: 768px) {
+  main {
+    margin-top: calc(-1 * $size-for-sticky-menu); //for sticky menu to work
+  }
+}
+
+///////SECTIONS - start
+
+// HERO - start
+#hero-carousel {
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: flex-start;
+  //grid-template-columns: 70% 1fr;
+  background-color: $dark;
+
+  //Sección imágenes del carousel
+  .carousel-img {
+    display: flex;
+    width: 100%;
+    aspect-ratio: var(--aspect-ratio-desktop-hero-16-9);
+
+    //Aquí se carga cada imagen
+    .carousel-img-bg {
+      align-self: stretch;
+      display: flex;
+      position: relative;
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: inherit;
+      //padding-bottom: calc(100% / calc(var(--aspect-ratio, var(--aspect-ratio-default))));//from original
+      //Esta solución, aunque no la usé, está explicada aquí: https://stackoverflow.com/questions/11243075/css-scale-height-to-match-width-possibly-with-a-formfactor
+
+      //Ocultar la imagen no activa - discarded por solucion de chatGPT
+      // &:not(:nth-child(1)) {
+      // display: none;
+      // }
+
+      //dirección de las imágnes de bg
+      &:nth-child(1) {
+        background-image: map.get($hero-img, 1);
+      }
+      &:nth-child(2) {
+        background-image: map.get($hero-img, 2);
+      }
+      &:nth-child(3) {
+        background-image: map.get($hero-img, 3);
+      }
+      &:nth-child(4) {
+        background-image: map.get($hero-img, 4);
+      }
+    }
+  }
+
+  //carta del carousel (area de texto y botones)
+  .carousel-card {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+
+    //link que engloba texto y botón de la carta
+    .carousel-card-txt {
+      position: relative;
+      gap: 2rem;
+      //display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      align-items: start;
+
+      //estilo del pre-titulo
+      p {
+        font-size: $font-size-sm;
+        color: $font-secondary-color;
+        font-family: $main-font-bold;
+      }
+
+      //Estilo del titulo
+      h2 {
+        font-size: $font-size-xl;
+        letter-spacing: 2px;
+      }
+
+      //estilo del botón
+      .carousel-card-bt {
+        padding: 0.75rem 3rem;
+        text-transform: uppercase;
+        font-family: $main-font-bold;
+        width: fit-content;
+        transition: background-color 0.2s ease, color 0.2s;
+        background-color: transparent;
+        color: $light;
+        border: 1px solid $light;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        cursor: pointer;
+        width: 100%;
+
+        &:hover {
+          background-color: $standard-color;
+          border-color: $standard-color;
+          color: $dark;
+        }
+      }
+
+      //Ocultar texto no activo - discarded por solucion de chatGPT
+      // &:not(:nth-child(1)) {
+      //   display: none;
+      //   }
+    }
+  }
+
+  //Interacción hero y botones
+  //Resuelto con ayuda de ChatGPT. Tuve la idea de hacerlo con radio buttons, pero no hallaba cómo ni siquiera buscar, al final lo estuve discutiendo con el chat, que me dio la idea inicial, y desde allí proseguí con los cambios
+
+  //* Ocultar inputs */
+  input.carousel-imputs[type="radio"] {
+    display: none;
+  }
+
+  //* Estilos de los botones (dot-bt) */
+  .dot-bt {
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: hsla(0, 0%, 100%, 0.4);
+    border-radius: 1rem;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: width 0.2s ease-in-out, background-color 0.3s; //all 0.3s;// best the way they did
+  }
+
+  //* Estilo del botón activo - OLD */
+  // input[type="radio"]:checked ~ .carousel-card .carousel-bts #btn1 {
+  //   background-color: #007BFF;
+  // }
+
+  //* Active style for the dot button associated with the checked radio */
+  #btn1:checked ~ .carousel-card .carousel-bts label[for="btn1"],
+  #btn2:checked ~ .carousel-card .carousel-bts label[for="btn2"],
+  #btn3:checked ~ .carousel-card .carousel-bts label[for="btn3"],
+  #btn4:checked ~ .carousel-card .carousel-bts label[for="btn4"] {
+    background-color: $light;
+    width: 3rem;
+  }
+
+  /* Ocultar todas las imágenes y textos inicialmente */
+  //.carousel-img .carousel-img-bg,
+  .carousel-card-txt {
+    display: none;
+  }
+
+  .carousel-img {
+    display: grid;
+    //grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .carousel-img .carousel-img-bg {
+    //left:500px;
+    transition: all 0.3s;
+    opacity: 0;
+  }
+
+  /* Mostrar el contenido relacionado al botón seleccionado */
+  #btn1:checked ~ .carousel-img #img1,
+  #btn1:checked ~ .carousel-card #txt1,
+  #btn2:checked ~ .carousel-img #img2,
+  #btn2:checked ~ .carousel-card #txt2,
+  #btn3:checked ~ .carousel-img #img3,
+  #btn3:checked ~ .carousel-card #txt3,
+  #btn4:checked ~ .carousel-img #img4,
+  #btn4:checked ~ .carousel-card #txt4 {
+    display: flex;
+    left: 0;
+    transition: display 0s, opacity 1.3s, left 1s;
+    opacity: 1;
+    grid-row-start: span 200; //span 300; funciona con esto, what!? Pero cuando esto está así: .carousel-img {display: grid;}
+    //grid-column-start: span 4;
+  }
+}
+
+@media (min-width: 526px) {
+  #hero-carousel {
+    .carousel-card {
+      .carousel-card-txt {
+        flex-direction: row;
+        .carousel-card-bt {
+          width: auto;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  #hero-carousel {
+    .carousel-card {
+      gap: 4rem;
+      .carousel-card-txt {
+        .carousel-card-bt {
+          margin-top: 1rem;
+        }
+        .carousel-card-title h2 {
+          font-size: $font-size-xxl;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  #hero-carousel {
+    .carousel-card {
+      gap: 1rem;
+      .carousel-card-txt {
+        .carousel-card-bt {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1124px) {
+  #hero-carousel {
+    grid-template-columns: 70% 1fr;
+
+    .carousel-card {
+      gap: 1rem;
+      .carousel-card-txt {
+        flex-direction: column;
+        justify-content: normal;
+        gap: 1rem;
+
+        .carousel-card-bt {
+          //border: 1px solid $border-color;
+          border-radius: $image-round-corner;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1300px) {
+  #hero-carousel {
+    .carousel-card {
+      padding: 4rem 2rem;
+    }
+  }
+}
+//end of Hero
+
+//NEWSWIRE - start
+#newswire {
+  align-self: stretch;
+  display: flex;
+  flex-flow: column;
+  padding: $section-padding-mobile;
+  gap: $wider-gap;
+
+  //Estilo del encabezado
+  h3 {
+    font-size: $font-sections-h3;
+  }
+
+  //grid que agrupa todas las cards
+  #newswire-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    background-color: $dark;
+    gap: $wider-gap;
+
+    //enlace que engloba la carta y estilos globales de la carta
+    .newswire-card_link {
+      align-self: stretch;
+      display: flex;
+      border-radius: $image-round-corner;
+      border: $basic-border;
+
+      //Enlaces a las imágenes (bg) de cada carta, referenciados por la posición de la carta como tal (por eso está en esta posición del código)
+      &:nth-child(1) .newswire-card-img {
+        background-image: map.get($newswire-img, 1);
+      }
+      &:nth-child(2) .newswire-card-img {
+        background-image: map.get($newswire-img, 2);
+      }
+      &:nth-child(3) .newswire-card-img {
+        background-image: map.get($newswire-img, 3);
+      }
+      &:nth-child(4) .newswire-card-img {
+        background-image: map.get($newswire-img, 4);
+      }
+      &:nth-child(5) .newswire-card-img {
+        background-image: map.get($newswire-img, 5);
+      }
+      &:nth-child(6) .newswire-card-img {
+        background-image: map.get($newswire-img, 6);
+      }
+
+      //div de la carta como tal
+      .newswire-card {
+        display: flex;
+        flex-flow: column;
+        width: 100%;
+
+        //div de la imagen de la carte
+        .newswire-card-img {
+          background-position: top;
+          background-repeat: no-repeat;
+          background-size: cover;
+          position: relative;
+          aspect-ratio: 1;
+          width: 100%;
+          border-radius: $image-round-corner $image-round-corner 0 0;
+        }
+
+        //div que engloba el texto de la carta
+        .newswire-card-txt {
+          display: flex;
+          flex-flow: column;
+          gap: $half-gap;
+          padding: 2rem 1.5rem;
+
+          //título de la carta
+          .newswire-card-title {
+            display: flex;
+            gap: 0.75rem;
+
+            //fuente del pre-título y fecha
+            span,
+            time {
+              font-size: $font-size-sm;
+            }
+
+            //estilo de fecha
+            time {
+              color: $light;
+              opacity: 0.5;
+            }
+          }
+
+          //título de la carta
+          h5 {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  #newswire {
+    padding: $section-padding;
+    #newswire-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  #newswire {
+    #newswire-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}
+
+//end of Newswire
+
+//FEATURE - start
+#feature {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  padding: $section-padding-mobile;
+  gap: $wider-gap;
+
+  //encabezado
+  h3 {
+    font-size: $font-sections-h3;
+  }
+
+  //grid que engloba los títulos (cartas)
+  #featured-grid {
+    align-self: stretch;
+    display: grid;
+    //grid-template-columns: 25% 25% 25% 25%; //no es necesario, hace que tome de referencia el ancho del contenedor, por lo que se sale
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: $basic-gap;
+
+    //estilo general de cada título
+    .featured-main-title,
+    .featured-title {
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      transition: transform 0.3s;
+      border-radius: $image-round-corner;
+
+      //estilo de animación en hover
+      &:hover {
+        transform: scale(1.025);
+        transition: transform 0.3s;
+      }
+    }
+
+    //Hacer que el título principal ocupe 4 columnas del grid
+    //+ establecer imagen de bg
+    .featured-main-title {
+      grid-column-start: span 2; // también se puede lograr con grid-column: 1 / -1;
+      background-image: map.get($featured-img, main);
+      aspect-ratio: var(--aspect-ratio-desktop-h);
+    }
+
+    //imagnes y aspect ratio del resto de títulos
+    .featured-title {
+      aspect-ratio: var(--aspect-ratio-desktop-v);
+
+      &:nth-child(2) {
+        background-image: map.get($featured-img, 1);
+      }
+      &:nth-child(3) {
+        background-image: map.get($featured-img, 2);
+      }
+      &:nth-child(4) {
+        background-image: map.get($featured-img, 3);
+      }
+      &:nth-child(5) {
+        background-image: map.get($featured-img, 4);
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  #feature {
+    padding: $section-padding;
+  }
+}
+@media (min-width: 1024px) {
+  #feature {
+    #featured-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      .featured-main-title {
+        grid-column-start: span 4;
+      }
+    }
+  }
+}
+//end of "Feature"
+
+//NEWSLETTER - start
+#newsletter {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  //min-height: $newsletter-min-height;//ya no hace falta
+  padding: $news-padding-mobile;
+  position: relative;
+
+  //contenedor que engloba el contenido, con un ancho máximo para el mismo
+  .newsletter-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    max-width: 30rem;
+    position: relative;
+    min-height: inherit;
+    font-size: 0.9rem;
+
+    //estilos para el logo
+    .logo {
+      width: calc(3.5 * $base-size);
+      height: calc(3.5 * $base-size);
+      background-size: calc(3.5 * $base-size);
+    }
+
+    //engloba título y texto para que tengan su propio gap
+    .newsletter-txt {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+
+      //estilos del título
+      h4 {
+        font-size: 1.3rem;
+        margin: 0;
+        line-height: normal;
+      }
+
+      //estilos del texto
+      p {
+        color: $font-secondary-color;
+      }
+    }
+
+    //estilos del botón
+    a.newsletter-bt {
+      border-radius: 0.5rem;
+      border: 1px solid $font-secondary-color;
+      padding: 0.65rem 2rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: $font-secondary-color;
+      letter-spacing: 1px;
+      background: transparent;
+      transition: 0.3s;
+      text-align: center;
+
+      &:hover {
+        background-color: $alt-bt-bg;
+      }
+    }
+  }
+
+  //fondo trama + máscara circular
+  //En este before se establece la máscara y el fondo (similar al original pero más simple)
+  &::before {
+    content: "";
+    display: block;
+    background-image: url(../images/newsletter-bg.png);
+    background-size: 13rem;
+    -webkit-mask-image: radial-gradient(75% 50% at 50% 50%, #000, transparent);
+    mask-image: radial-gradient(75% 50% at 50% 50%, #000, transparent);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    opacity: 0.2;
+  }
+}
+
+@media (min-width: 574px) {
+  #newsletter {
+    padding: $news-padding;
+    .newsletter-content {
+      align-items: center;
+      text-align: center;
+    }
+  }
+}
+//end of "Newsletter"
+
+//FOOTER - start
+footer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  gap: 2rem 0;
+  grid-row-gap: 4rem;
+  background-color: $card-background-color;
+  font-size: 0.65rem;
+
+  //estilo del hover de los enlaces
+  a:hover {
+    color: $standard-color;
+  }
+
+  #footer-nav {
+    order: 0;
+    font-size: 0.95rem;
+    font-weight: 400;
+    ul {
+      display: grid;
+      gap: 1rem;
+      li {
+        font-weight: 400;
+        display: grid;
+        gap: 1rem;
+      }
+    }
+  }
+
+  #footer-language {
+    order: 2;
+
+    #footer-language-bt {
+      color: inherit;
+      border: 1px solid transparent;
+      background: none;
+
+      span {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.25rem;
+
+        &:before {
+          content: "";
+          display: inline-block;
+          background-image: url(../images/icon-world.svg);
+          background-size: calc($base-size * 1.5);
+          @include icon-size-m();
+        }
+        &:after {
+          content: "";
+          display: inline-block;
+          background-image: url(../images/icon-arrow-down.svg);
+          background-size: calc($base-size * 1.5);
+          @include icon-size-m();
+          transform: rotate(0deg);
+          transition: 0.3s;
+        }
+      }
+      &:focus {
+        border: 1px solid $light;
+
+        //animación giro flecha
+        span:after {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  #footer-network {
+    order: 2;
+    display: flex;
+    gap: 1rem;
+    flex-basis: 100%;
+
+    .footer-network-icon {
+      border: 8px solid transparent;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      border-radius: 100%;
+      box-sizing: initial;
+      @include icon-size-m();
+
+      &:hover {
+        background-color: hsla(0, 0%, 100%, 0.15);
+      }
+    }
+
+    //llamada a las imágenes de los iconos de las redes
+    .tw {
+      background-image: map.get($social-icon, tw);
+    }
+    .ig {
+      background-image: map.get($social-icon, ig);
+    }
+    .yt {
+      background-image: map.get($social-icon, yt);
+    }
+    .fb {
+      background-image: map.get($social-icon, fb);
+    }
+    .twitch {
+      background-image: map.get($social-icon, twitch);
+    }
+  }
+
+  //Seccion para los enlaces legales
+  #footer-legal {
+    order: 3;
+    flex-basis: 100%;
+    #footer-legal-list {
+      display: grid;
+      gap: 1rem;
+
+      li a {
+        opacity: 0.65;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  #sites {
+    order: 3;
+    flex-basis: 100%;
+    font-size: 0.65rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    #footer-adrress-list {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+}
+
+//Footer - responsive
+@media (min-width: 775px) {
+  footer {
+    font-size: 0.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  footer {
+    padding: 4rem;
+    gap: 8rem 0;
+    font-size: 0.85rem;
+
+    #footer-nav {
+      order: 0;
+      flex-basis: 100%;
+
+      ul {
+        display: flex;
+        flex-flow: no-wrap row;
+        gap: 1rem;
+      }
+    }
+    #footer-language {
+      order: 1;
+      flex-basis: 30%;
+      text-align: end;
+    }
+    #footer-network {
+      order: 1;
+      justify-content: flex-end;
+      flex-basis: 30%;
+      gap: 1rem;
+      .footer-network-icon {
+        @include icon-size-l();
+      }
+    }
+    #footer-legal {
+      flex-basis: 70%;
+      font-size: $font-size-sm;
+      order: 2;
+    }
+    #sites {
+      display: flex;
+      justify-content: space-between;
+      font-size: $font-size-sm;
+      font-weight: 700;
+      flex-direction: row;
+
+      #footer-adrress-list {
+        display: flex;
+        gap: 1rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 875px) {
+  footer {
+    #footer-nav {
+      flex-basis: 70%;
+    }
+    #footer-language {
+      order: 2;
+    }
+    #footer-network {
+      order: 2;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  footer {
+    grid-row-gap: 4rem;
+    font-size: 1rem;
+    #footer-network {
+      order: 3;
+    }
+  }
+}
+
+@media (min-width: 1124px) {
+  footer {
+    font-size: 1rem;
+  }
+}
+
+//FOOTER - end
+
+//Start experimentos
+#header {
+  .header-right {
+    position: relative;
+
+    .profile-card {
+      display: none;
+      opacity: 0;
+
+      position: fixed;
+      top: $header-height-desktop;
+      right: 2rem;
+      left: 2rem;
+
+      width: calc(100% - 4rem);
+      transition: bottom 0.3s ease-in, opacity 0.3s ease-in;
+
+      //bottom: calc(-110vh + $header-height-desktop);
+
+      flex-direction: column;
+      gap: 1rem;
+
+      .profile-card-top,
+      .profile-card-bottom {
+        display: flex;
+        flex-direction: column;
+        border: $border-color;
+        background-color: $background-header-menu;
+        border-radius: $image-round-corner;
+        font-size: $font-size-sm;
+
+        a,
+        button {
+          padding: 1rem 1.5rem;
+          border-bottom: 1px solid $border-color;
+          color: $light;
+        }
+
+        & :nth-last-child(1),
+        button {
+          border: none;
+        }
+
+        .help-list {
+          display: none;
+
+          a {
+            padding: 1rem 0.5rem;
+          }
+        }
+
+        button {
+          display: flex;
+          justify-content: space-between;
+          
+          &::after {
+            content: "";
+            display: inline-block;
+            background-image: url(../images/icon-arrow-down.svg);
+            background-size: 18px;
+            height: 18px;
+            width: 18px;
+            transform: rotate(0deg);
+            transition: 0.3s;
+          }
+
+          &:focus {
+            background-color: hsla(0, 0%, 100%, .4);
+
+            &::after {
+              transform: rotate(180deg);
+
+              ~.help-list {
+                display: inline-block;
+              }
+            }
+          }
+        }
+      }
+
+    }
+
+    #header-profile {
+      &:focus {
+        ~.profile-card {
+          display: flex;
+          opacity: 1;
+          //bottom: calc(-100vh + $header-height-desktop);
+        }
+      }
+    }
+
+    @media (min-width:768px) {
+      .profile-card {
+        width: 40%;
+        max-width: 300px;
+        left: auto;
+      }
+
+      #header-profile {
+        &:focus {
+          ~.profile-card {
+            max-width: 300px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -4,19 +4,19 @@ En el presente proyecto podrán encontrar:
 
 - index.html: donde se encuentra la estructura html para la réplica.
 En la misma, se puede apreciar:
--- Se replica la estructura general del sitio, incluyendo:
--- Responsiveness.
--- Efectos al pasar el mouse sobre diversos objetos (hover).
--- en el Hero, los botonos funcionan, con la animación adecuada, e, incluso, cambian el contenido a mostrar, tanto imagen como texto. La imagen no replica la animación original, pero tiene una funcional mientras se mejora. 
+  - Se replica la estructura general del sitio, incluyendo:
+  - Responsiveness.
+  - Efectos al pasar el mouse sobre diversos objetos (hover).
+  - en el Hero, los botonos funcionan, con la animación adecuada, e, incluso, cambian el contenido a mostrar, tanto imagen como texto. La imagen no replica la animación original, pero tiene una funcional mientras se mejora. 
 
-El archivo contiene comentarios para ayudar a ubicar elementos generales
+    El archivo contiene comentarios para ayudar a ubicar elementos generales
 
 - Directorio de assets, dividido en los siguientes subdirectorios:
--- images: donde se almacenan todas las imágenes usadas, renombradas para ubicarlas de modo más fácil
--- fonts: se almacenan las fuentes para el sitio
--- sass: directorio donde se encuentran los diversos archivos sass creados para el sitio. los archivos sass están documentados en un 70% para ayudar a entender las diversas funcionalidades presentes en el código. Aún se puede mejorar.
--- css: donde se compila el archivo de estilos final
--- js: reservado para aplicación de javaScript futura
+  - images: donde se almacenan todas las imágenes usadas, renombradas para ubicarlas de modo más fácil
+  - fonts: se almacenan las fuentes para el sitio
+  - sass: directorio donde se encuentran los diversos archivos sass creados para el sitio. los archivos sass están documentados en un 70% para ayudar a entender las diversas funcionalidades presentes en el código. Aún se puede mejorar.
+  - css: donde se compila el archivo de estilos final
+  - js: reservado para aplicación de javaScript futura
 
 No todas las funcionalidades han podido ser replicadas, en especial sin js. 
 Quedan pendientes en la siguiente lista
